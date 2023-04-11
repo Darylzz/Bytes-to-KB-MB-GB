@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test 3</title>
+  </head>
+  <body>
+    <p>Input :</p>
+    <input type="text" class="input" />
+    <br />
+    <br />
+    <button onclick="formatSizeUnits()">คำนวณจาก Byte เป็น KB,MB,GB</button>
+    <br />
+    <br />
+    <button>แปลงเป็นเลขโรมัน</button>
+    <p>Output:</p>
+    <p class="sum"></p>
+    <script>
+      function formatSizeUnits(bytes) {
+        var bytes = document.querySelector(".input").value;
+        var sum = document.querySelector(".sum");
+        if (bytes >= 1073741824) {
+          sum.innerHTML = (bytes / 1073741824).toFixed(2) + " GB";
+        } else if (bytes >= 1048576) {
+          sum.innerHTML = (bytes / 1048576).toFixed(2) + " MB";
+        } else if (bytes >= 1024) {
+          sum.innerHTML = (bytes / 1024).toFixed(2) + " KB";
+        } else if (bytes > 1) {
+          sum.innerHTML = bytes + " bytes";
+        } else if (bytes == 1) {
+          sum.innerHTML = bytes + " byte";
+        } else {
+          bytes = "0 bytes";
+        }
+      }
+    </script>
+  </body>
+</html>
